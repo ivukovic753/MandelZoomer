@@ -1,10 +1,8 @@
-
 var canvas=document.getElementById('canvas1');
 var ctx = canvas.getContext('2d');
 
 var canvas2=document.getElementById('canvas2');
 var ctx2=canvas2.getContext('2d');
-
 
 let w=canvas.width;  
 let h=canvas.height;
@@ -30,12 +28,9 @@ class color {
     }
   }
 
-
 setIterations();
 
 redrawFract(x0,y0,area,0);
-
-
 
 function redrawFract(x0,y0,area,i)
 {         
@@ -108,7 +103,7 @@ function canvas2Clicked()
     //console.log("redrawing x0:"+ +x0+' y0:'+ y0 + 'area:'+area );
 }
 
-canvas2.onmousemove = mouseMoved; 
+canvas2.addEventListener("mousemove",mouseMoved); 
 function mouseMoved(e) 
 {      
     var mousecoords = getMousePos(e);
@@ -136,7 +131,6 @@ function getMousePos(e)
     return {x:e.clientX,y:e.clientY};
 }
 
-
 function Mandelbrot(x,  y, iterations)
 {            
     a = 0;
@@ -160,9 +154,7 @@ function Mandelbrot(x,  y, iterations)
 
 
 var b1=document.getElementById('set');
-
 b1.addEventListener("click", setIterations, false);
-
 function setIterations()
 {      
     iterations=document.getElementById('iterations').value;   
@@ -178,9 +170,7 @@ function setIterations()
 }
 
 var b2=document.getElementById('redraw');
-
 b2.addEventListener("click", redraw, false);
-
 function redraw() 
 {   
     redrawFract(x0,y0,area,0);
